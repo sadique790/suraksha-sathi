@@ -1,108 +1,149 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Suraksha Sathi</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        body {
-            font-family: Arial;
-            margin: 0;
-            background: #f5f5f5;
-        }
-        header {
-            background: #0a2a66;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-        h1 { margin: 0; }
-        .section {
-            padding: 20px;
-            margin: 10px;
-            background: white;
-            border-radius: 10px;
-        }
-        .btn {
-            background: #ffcc00;
-            padding: 10px 15px;
-            text-decoration: none;
-            color: black;
-            border-radius: 5px;
-        }
-        footer {
-            background: #0a2a66;
-            color: white;
-            text-align: center;
-            padding: 10px;
-        }
-    </style>
+<title>Suraksha Sathi</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+body {
+    font-family: Arial;
+    margin: 0;
+    background: #f0f4f8;
+}
+
+header {
+    background: linear-gradient(90deg, #0a2a66, #003399);
+    color: white;
+    padding: 30px;
+    text-align: center;
+}
+
+h1 { margin: 0; }
+
+.container {
+    padding: 20px;
+}
+
+.card {
+    background: white;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.btn {
+    background: #ffcc00;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+}
+
+/* Popup */
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+}
+
+.popup-content {
+    background: white;
+    padding: 20px;
+    margin: 100px auto;
+    width: 300px;
+    border-radius: 10px;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+}
+
+footer {
+    background: #0a2a66;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+</style>
 </head>
 
 <body>
 
 <header>
-    <h1>Suraksha Sathi</h1>
-    <p>सुरक्षित आज, बेहतर कल</p>
+<h1>Suraksha Sathi</h1>
+<p>सुरक्षित आज, बेहतर कल</p>
 </header>
 
-<div class="section">
-    <h2>About Us</h2>
-    <p>Suraksha Sathi is your one-stop solution for insurance, financial services, real estate, and digital services in Ranchi. We provide fast, reliable, and affordable services.</p>
+<div class="container">
+
+<div class="card">
+<h2>Our Services</h2>
+
+<div class="grid">
+<button class="btn" onclick="openPopup()">Insurance</button>
+<button class="btn" onclick="openPopup()">Loan Services</button>
+<button class="btn" onclick="openPopup()">Real Estate</button>
+<button class="btn" onclick="openPopup()">Print & Xerox</button>
+<button class="btn" onclick="openPopup()">Passport & Licence</button>
+<button class="btn" onclick="openPopup()">Online Services</button>
 </div>
 
-<div class="section">
-    <h2>Insurance Services</h2>
-    <ul>
-        <li>Life Insurance</li>
-        <li>Health Insurance</li>
-        <li>Car & Bike Insurance</li>
-        <li>Home Insurance</li>
-        <li>Travel Insurance</li>
-        <li>WC Insurance</li>
-    </ul>
 </div>
 
-<div class="section">
-    <h2>Loan & Finance</h2>
-    <ul>
-        <li>Personal Loan</li>
-        <li>Business Loan</li>
-        <li>Financial Guidance</li>
-    </ul>
+<div class="card">
+<h2>Contact</h2>
+<p>📞 9576655790</p>
+<p>📧 seijitsunamallick@gmail.com</p>
+<p>📍 Ranchi</p>
 </div>
 
-<div class="section">
-    <h2>Real Estate</h2>
-    <ul>
-        <li>Buy Property</li>
-        <li>Sell Property</li>
-        <li>Rental Services</li>
-    </ul>
 </div>
 
-<div class="section">
-    <h2>Digital Services</h2>
-    <ul>
-        <li>Print (B/W & Color)</li>
-        <li>Xerox & Scan</li>
-        <li>Photo Print & Passport Photo</li>
-        <li>Passport Apply</li>
-        <li>Driving Licence</li>
-        <li>eKalyan & Online Forms</li>
-    </ul>
+<!-- Popup -->
+<div id="popup" class="popup">
+<div class="popup-content">
+<h3>Please let us guide you</h3>
+
+<form action="https://docs.google.com/forms/d/1mqxcMfSuCDNR-AfY65jcN7UTd91L1B4LONQG8yINMv8/edit" target="_blank">
+
+<input type="text" placeholder="Your Name" required>
+<input type="text" placeholder="Mobile Number" required>
+<input type="email" placeholder="Email ID" required>
+
+<button class="btn" type="submit">Submit</button>
+</form>
+
+<button onclick="closePopup()">Close</button>
+
+</div>
 </div>
 
-<div class="section">
-    <h2>Contact</h2>
-    <p>📞 9576655790</p>
-    <p>📧 seijitsunamallick@gmail.com</p>
-    <p>📍 Pathal Kudwa Road near Millat Colony, Ranchi</p>
+<script>
+function openPopup() {
+    document.getElementById("popup").style.display = "block";
+}
 
-    <a class="btn" href="tel:9576655790">Call Now</a>
-</div>
+function closePopup() {
+    document.getElementById("popup").style.display = "none";
+}
+</script>
 
 <footer>
-    <p>© 2026 Suraksha Sathi</p>
+<p>© Suraksha Sathi</p>
 </footer>
 
 </body>
